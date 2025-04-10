@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 210 100% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 354 81% 57%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 210 90% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 210 100% 24%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-netflix-black text-foreground antialiased;
+    font-family: 'Netflix Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  .navbar-link {
+    @apply text-white opacity-75 hover:opacity-100 transition-opacity;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(to top, rgb(10, 10, 10) 0%, rgba(10, 10, 10, 0) 60%, rgba(10, 10, 10, 0.8) 100%);
+  }
+
+  .card-title {
+    @apply text-base font-medium text-white mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  .card-container {
+    @apply snap-start shrink-0 cursor-pointer relative;
+  }
+
+  .carousel-container {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .carousel-track {
+    @apply flex gap-2 snap-x snap-mandatory overflow-x-auto scrollbar-hide py-4;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-button {
+    @apply absolute z-10 top-1/2 transform -translate-y-1/2 bg-black/50 text-white w-12 h-40 flex items-center justify-center opacity-0 
+    transition-opacity duration-300 hover:bg-black/70;
+  }
+
+  .carousel-container:hover .carousel-button {
+    @apply opacity-100;
+  }
+
+  .netflix-card {
+    @apply overflow-hidden rounded bg-card relative transition-all duration-300 hover:z-50;
+  }
+
+  .netflix-card:hover {
+    @apply scale-110 shadow-xl;
+  }
+
+  .netflix-card-overlay {
+    @apply absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent opacity-0 
+    transition-opacity duration-300 group-hover:opacity-100;
+  }
+
+  .button-play {
+    @apply bg-white text-black rounded px-5 py-1 flex items-center gap-1 hover:bg-opacity-90 transition;
+  }
+
+  .button-info {
+    @apply bg-gray-500/70 text-white rounded-full w-8 h-8 flex items-center justify-center border-2 
+    border-gray-400 hover:border-white transition;
+  }
+}
+
+.hero-details {
+  width: 40%;
+}
+
+@media (max-width: 768px) {
+  .hero-details {
+    width: 100%;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.logo-cientifica {
+  filter: brightness(0) invert(1);
+}
